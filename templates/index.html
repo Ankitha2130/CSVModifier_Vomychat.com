@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Processing Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>File Processing Dashboard</h1>
+        
+        <form id="uploadForm">
+            <div class="form-group">
+                <label for="file">Select CSV or Excel file:</label>
+                <input type="file" id="file" accept=".csv,.xlsx,.xls" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="instructions">Processing Instructions:</label>
+                <textarea id="instructions" rows="4" cols="50" 
+                    placeholder="Enter any specific instructions for processing the file..."></textarea>
+            </div>
+            
+            <button type="submit">Process File</button>
+        </form>
+
+        <div id="status"></div>
+        
+        <div class="log-container">
+            <h3>Processing Log</h3>
+            <div id="log"></div>
+        </div>
+
+        <div id="download" style="display: none;">
+            <h3>Processed File</h3>
+            <a id="downloadLink" href="#" class="button">Download Processed File</a>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', path='/js/main.js') }}"></script>
+</body>
+</html> 
